@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<meta name="robots" content="noindex">
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>css clip path</title>
+<style>
+
+.box {
+  display:flex;
+  justify-content:center;
+  align-items:flex-end;
+  flex-wrap:wrap;
+  height:50vh;
+}
+
+.boxItem {
+  width:250px;
+  height:250px;
+  border:1px solid #ddd;
+  margin:10px;
+}
+
+.boxItem > img {
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+}
+
+
+
+/** One **/
+.one {
+  width:400px;
+  -webkit-clip-path: circle(48.4% at 49% 100%);
+   clip-path: circle(48.4% at 49% 100%);
+  transition:1s all;
+}
+
+.one:hover {
+  -webkit-clip-path: circle(100.0% at 52% 52%);
+clip-path: circle(100.0% at 52% 52%);
+}
+
+
+
+/** two **/
+.two {
+  -webkit-clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+  transition:1s all;
+}
+
+.two:hover {
+  -webkit-clip-path: polygon(51% 0, 100% 0, 100% 35%, 100% 60%, 100% 100%, 51% 100%, 0 100%, 0 61%, 0 33%, 0 0);
+clip-path: polygon(51% 0, 100% 0, 100% 35%, 100% 60%, 100% 100%, 51% 100%, 0 100%, 0 61%, 0 33%, 0 0);
+}
+
+
+
+/** three **/
+.three {
+  -webkit-clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  animation:clipPath 10s infinite;
+  transition:1s all;
+}
+
+
+@keyframes clipPath {
+  0% , 100% {
+    -webkit-clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  }
+  
+   10% , 90% {
+    -webkit-clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0 0);
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0 0);
+  }
+  
+  20% , 80% {
+    -webkit-clip-path: polygon(50% 0%, 100% 50%, 0 100%, 0 0);
+    clip-path: polygon(50% 0%, 100% 50%, 0 100%, 0 0);
+  }
+  
+  30% , 60% {
+    -webkit-clip-path: polygon(50% 0%, 100% 100%, 0 100%, 0 0);
+    clip-path: polygon(50% 0%, 100% 100%, 0 100%, 0 0);
+  }
+  
+  50% {
+    -webkit-clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 0);
+    clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 0);
+  }
+  
+}
+
+
+
+/** Note : **/
+/**
+  * @also you can use 
+  *
+  * clip-path : ellipse ();
+  * clip-path : inside ();
+  */
+
+
+
+</style>
+</head>
+<body>
+
+  
+  <div class="box"> 
+      <div class="boxItem one"> 
+           <img src="https://www.drweil.com/wp-content/uploads/2017/01/health-wellness_health-centers_women_perimenopause_1440x1080_186849975-1024x768.jpeg" alt="">
+       </div>
+      <div class="boxItem two"> 
+           <img src="https://www.drweil.com/wp-content/uploads/2017/01/health-wellness_health-centers_women_perimenopause_1440x1080_186849975-1024x768.jpeg" alt="">
+       </div>
+    
+      <div class="boxItem three"> 
+           <img src="https://www.drweil.com/wp-content/uploads/2017/01/health-wellness_health-centers_women_perimenopause_1440x1080_186849975-1024x768.jpeg" alt="">
+       </div>
+  </div>
+  
+  
+</body>
+</html>
